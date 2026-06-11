@@ -26,8 +26,6 @@ src-tauri/resources/hashcat/ 内置 hashcat 资源目录
 src-tauri/resources/wordlists/ 字典资源目录
 scripts/                     打包脚本
 dist-portable/               完整便携版输出目录
-dist-lite/                   轻量版输出目录
-test-artifacts/              测试和截图产物
 ```
 
 ## 开发环境
@@ -77,38 +75,6 @@ pnpm portable
 dist-portable/HashcatGUI/HashcatGUI.exe
 ```
 
-构建轻量版：
-
-```powershell
-pnpm portable:lite
-```
-
-轻量版输出位置：
-
-```text
-dist-lite/HashcatGUI/HashcatGUI.exe
-```
-
-## Hashcat 与资源
-
-完整便携版会把 `src-tauri/resources/hashcat/` 复制到发布目录中。
-
-轻量版不内置 hashcat，可以在软件内通过：
-
-```text
-设置 -> Hashcat 更新
-```
-
-下载或更新 hashcat，也可以在设置里选择自定义 hashcat 安装目录。
-
-字典文件可以放在：
-
-```text
-src-tauri/resources/wordlists/
-```
-
-但请注意，`rockyou.txt` 这类大字典通常超过 GitHub 单文件 100MB 限制，不建议提交到 Git 仓库。
-
 ## AI 设置
 
 AI 功能使用 OpenAI 兼容接口。打开软件右上角设置后，填写：
@@ -120,23 +86,6 @@ AI 功能使用 OpenAI 兼容接口。打开软件右上角设置后，填写：
 然后点击测试连接，成功后保存即可。
 
 AI 配置保存在本机应用数据目录中，不会写入仓库。
-
-## GitHub 提交注意事项
-
-不要把下面这些内容提交到普通 Git 仓库：
-
-```text
-dist-portable/
-dist-lite/
-src-tauri/resources/wordlists/rockyou.txt
-*.exe
-*.7z
-*.zip
-```
-
-原因是这些文件通常体积很大，容易触发 GitHub 的 100MB 单文件限制或导致 push 超时。
-
-如果已经提交过大文件，需要从 Git 历史中移除，而不是只在本地删除文件。
 
 ## 免责声明
 
