@@ -22,8 +22,6 @@ HashcatGUI 是一个面向 Windows 的 hashcat 图形界面工具，用来更方
 ```text
 src/                         React 前端代码
 src-tauri/                   Tauri / Rust 后端代码
-src-tauri/resources/hashcat/ 内置 hashcat 资源目录
-src-tauri/resources/wordlists/ 字典资源目录
 scripts/                     打包脚本
 dist-portable/               完整便携版输出目录
 ```
